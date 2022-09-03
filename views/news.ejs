@@ -1,0 +1,12 @@
+<%-  include("header-main")-%>
+<div class="box" id="heading">
+     <h1>Political News</h1>
+ </div>
+ <div class="newsbox">
+     <% for(var i=0;i<newListItem.length;i++){ %>
+         <p class="newsitem">
+             <a href="<%=newListItem[i][1] %>" target="new"><%=newListItem[i][0] %></a>
+         </p>
+     <% } %>
+ </div>>
+ <%-  include("footer")-%>

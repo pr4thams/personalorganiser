@@ -1,0 +1,43 @@
+<%- include('header') %>
+<p></p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p>Track all your day-to-day Personal Task using PersonalOrganiser Application.</p>
+      <p>PersonalOrganiser Application will help you to:
+      <ul>
+        <li>Manage your tasks efficiently</li>
+        <li>Keep eye on top latest political NEWS of your country</li>
+        <li>Keep eye on latest business NEWS</li>
+        <li>Keep eye on latest technology NEWS</li>
+        <li>Keep eye on Weather Report for your location</li>
+        <li>Feeling bored? Enjoy the Jokes</li>
+      </ul></p>
+    </div>
+    <div class="col">
+      <h1 class="head1">Register</h1>
+      <div class="card">
+        <div class="card-body">
+                <form action="/register" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <a href="/register" class="button btn btn-dark">Register</a>
+           <a href="/login" class="button btn btn-dark">Login</a>
+          </form>
+          <p><font color="red">Username already exist. Try login or register again</font></p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('footer') %>

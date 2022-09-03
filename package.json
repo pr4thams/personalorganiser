@@ -1,0 +1,32 @@
+{
+  "name": "mernproject",
+  "version": "1.0.0",
+  "description": "My notes applications",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pratham",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "https": "^1.0.0",
+    "json": "^11.0.0",
+    "md5": "^2.3.0",
+    "mongoose": "^6.5.2",
+    "mongoose-encryption": "^2.1.2",
+    "newsapi": "^2.4.1",
+    "node-ipinfo": "^3.1.1",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2"
+  }
+}

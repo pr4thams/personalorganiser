@@ -1,0 +1,30 @@
+<%-  include("header-main")-%>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="climate">The weather in city,  <%= cityname %> is currently <%= des %> <img src="<%= iurl %>"></h1>
+            <h1 class="climate">Temperature is currently <%= tempo %> degree celcius</h1>
+            </div>
+            <div class="col">
+        <div class="box" id="heading">
+            <h1><%= listTitle %></h1>
+        </div>
+        <div class="box">
+            <% for(var i=0;i<newListItem.length;i++){ %>
+                <form method="post" action="/delete">
+                <div class="item">
+                    <input type="checkbox" name="delcheck" onChange="this.form.submit()" value="<%=newListItem[i].id %>">
+                    <%= newListItem[i].item %>
+                </div>
+                </form>
+            <% } %>
+            <form class="item" action="/list" method="post">
+                <input type="text" name="newItem" placeholder="Add Task" autocomplete="off">
+                <button class="buttonItem" type="submit" name="listTitleVal">+</button>
+            </form>
+        </div>
+    </div>
+    
+    </div>
+</div>
+        <%-  include("footer")-%>
