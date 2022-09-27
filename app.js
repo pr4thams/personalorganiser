@@ -13,16 +13,28 @@ const { IPinfoWrapper } = require("node-ipinfo");
 const { stringify } = require('querystring');
 const { json } = require('body-parser');
 const { response } = require('express');
-const ipinfo = new IPinfoWrapper("313c67a3309026");
+const ipinfo = new IPinfoWrapper(process.env.KEY1);
+const PORT = process.env.PORT || 3000;
+const requestIp = require('request-ip');
 //const JSON= require('JSON');
 var ipaddress=""
 var country="";
 var city="";
 var cname="";
 
-const requestListener = function (req, res) {
-    ipaddress=req.socket.localAddress;
+
+// const requestListener = function (req, res) {
+//     ipaddress=req.socket.localAddress;
+// };
+const ipMiddleware = function(req, res) {
+    const ipaddress = requestIp.getClientIp(req); 
 };
+
+ app.get('/', function (req, res) {
+ //   ipaddress = req.socket.remoteAddress;
+    res.render("login");
+});
+
 
 ipinfo.lookupIp(ipaddress).then((response) => {
     country=response.country;
@@ -75,10 +87,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 const Item = mongooseB.model("Item",todolistSchema);
-
-app.get('/', function (req, res) {
-    res.render("login");
-    });
 
 
 app.get('/login', function (req, res) {
@@ -202,7 +210,7 @@ if(cname==="")
     cname="us";
 }
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('b133ef5d918b4b5facb7701cdfcbf347');
+const newsapi = new NewsAPI(process.env.KEY2);
 // To query /v2/top-headlines
 // All options passed to topHeadlines are optional, but you need to include at least one of them
 
@@ -224,7 +232,7 @@ app.get("/bnews", function (req, res) {
         cname="us";
     }
     const NewsAPI = require('newsapi');
-    const newsapi = new NewsAPI('b133ef5d918b4b5facb7701cdfcbf347');
+    const newsapi = new NewsAPI(process.env.KEY2);
     // To query /v2/top-headlines
     // All options passed to topHeadlines are optional, but you need to include at least one of them
     newsapi.v2.topHeadlines({'category': 'business','country':cname}).then(response => {
@@ -245,7 +253,7 @@ app.get("/tnews", function (req, res) {
         cname="us";
     }
     const NewsAPI = require('newsapi');
-    const newsapi = new NewsAPI('b133ef5d918b4b5facb7701cdfcbf347');
+    const newsapi = new NewsAPI(process.env.KEY2);
     // To query /v2/top-headlines
     // All options passed to topHeadlines are optional, but you need to include at least one of them
      newsapi.v2.topHeadlines({'category': 'technology','country':cname}).then(response => {
@@ -259,6 +267,6 @@ app.get("/tnews", function (req, res) {
       });
 });
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
     console.log("Server initiated at 3000");
 })
