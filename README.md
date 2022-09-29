@@ -1,0 +1,1 @@
+The objective behind this web application development was to implement what I have learned so far on the Full Stack Web development. The application enables users to record important personal as well as professional to-do lists. It also allows access to the top 10 political, business, and technology news. This also quick access to weather reports of the user's location.
